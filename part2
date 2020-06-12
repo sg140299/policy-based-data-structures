@@ -1,0 +1,21 @@
+
+
+
+
+
+int main(){
+int n;
+int arr[n];
+for(int i=0;i<n;i++){
+cin>>arr[i];
+}
+PBDS St;
+int inv_count=0;
+for(int i=0;i<n;i++){
+inv_count+=St.size()-St.order_of_key(arr[i]);
+St.insert(arr[i]);
+}
+cout<<inv_count<<endl;
+
+return 0;
+}
