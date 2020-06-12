@@ -1,6 +1,38 @@
 //HEADER FILES
+#include<bits/stdc++.h>
+
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
-//include tree order statistics node update
-using namespace __gnu_pbds;
 
+//include tree order statistics node update
+
+using namespace __gnu_pbds
+using namespace std;
+
+typedef tree< int, null_type, less<int>, rb_tree_tag,  tree_order_statistics_node_update> PBDS;
+//typedef tree< pair<int,int>, null_type, less<pair<int,int>>, rb_tree_tag,  tree_order_statistics_node_update> PBDS_multiple;
+
+
+
+int main(){
+  PBDS St;
+  St.insert(1);
+  //St .insert({1,0}); every pair second value is diff in all
+  St.insert(4);//St.insert({1,2});
+  St.insert(5);
+  St.insert(10);
+  St.insert(14);
+  //kth largest element till now in log(n)
+  for(int i=0;i<St.size();i++){
+    cout<<i<<"  "<<*St.find_by_order(i)<<"\n";//St.find_by_order->first<<"  "<<St.find_by_order->second;
+  }
+  //how many elemets are strictly smaller in log(n)
+  cout<<order_of_key(5);//how many ele are smaller than 5
+  
+  
+  
+  
+
+
+return 0;
+}
