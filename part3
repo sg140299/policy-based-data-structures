@@ -1,1 +1,40 @@
+#include<bits/stdc++.h>
 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+//include tree order statistics node update
+
+using namespace __gnu_pbds;
+using namespace std;
+
+typedef tree< pair<int,int>, null_type, less<pair<int,int>>, rb_tree_tag,  tree_order_statistics_node_update> PBDS;
+
+
+int main(){
+
+PBDS d;
+int n;
+cin>>n;
+int a[n],b[n];
+for(int i=0;i<n;i++){
+cin>>a[i];}
+for(int j=0;j<n;j++){
+cin>>b[j];}
+int c[n];
+for(int k=0;k<n;k++){
+c[k]=a[k]-b[k];}
+long long int ans=0;
+//cout<<n<<endl;
+for(int i=0;i<n;i++){
+ans+=d.size()-d.order_of_key({-c[i],1000005});
+//cout<<ans<<endl;
+d.insert({c[i],i});
+}
+cout<<ans<<endl;
+
+
+
+
+return 0;
+}
